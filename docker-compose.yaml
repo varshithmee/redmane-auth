@@ -19,7 +19,7 @@ services:
   keycloak:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: keycloak.dev.Dockerfile
     container_name: keycloak
     environment:
       KC_DB: postgres
@@ -28,7 +28,7 @@ services:
       KC_DB_PASSWORD: password
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
-      KC_PROXY: edge
+      KC_PROXY_HEADERS: xforwarded
       KC_HTTP_ENABLED: "true"
       KC_HOSTNAME_STRICT: "false"
     depends_on:
